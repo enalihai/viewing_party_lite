@@ -11,7 +11,8 @@ RSpec.describe "Register New User" do
     fill_in "Name", with: "Jamison Ordway"
     fill_in "Email", with: "jordway@mailg.com"
     fill_in "Password", with: "abc123iou"
-    fill_in "Confirm Password", with: "abc123iou"
+    fill_in "Confirm password", with: "abc123iou"
+    #was messing up for Confirm Password
 
     click_button "Register"
 
