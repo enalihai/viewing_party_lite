@@ -11,7 +11,7 @@ RSpec.describe "Movie Detail Page" do
     expect(current_path).to eq(new_person_party_path)
   end
 
-  xit "has a button to return to Discover Page" do
+  it "has a button to return to Discover Page" do
     movie1 = Movie.new(title: "Who Killed Mike Dao", vote_average: 10, id: 20)
 
     visit movie_path
@@ -21,7 +21,7 @@ RSpec.describe "Movie Detail Page" do
     expect(current_path).to eq(discover_path)
   end
 
-  xit "displays movie information" do
+  it "displays movie information" do
     movie1 = Movie.new(title: "Who Killed Mike Dao", vote_average: 10, id: 20)
 
     visit movie_path

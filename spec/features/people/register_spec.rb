@@ -1,15 +1,19 @@
 require "rails_helper"
 
 RSpec.describe "Register New User" do
-  it "has a form to register new user name, email with button" do
+  it "has a form to register new user name, email, and password with button" do
     visit root_path
 
     click_button "Create New User"
 
-    expect(current_path).to eq(new_person_path)
+    expect(current_path).to eq(register_path)
 
     fill_in "Name", with: "Jamison Ordway"
     fill_in "Email", with: "jordway@mailg.com"
+    fill_in "Password", with: "abc123iou"
+    fill_in "Confirm password", with: "abc123iou"
+    #was messing up for Confirm Password
+
     click_button "Register"
 
     person = Person.last
