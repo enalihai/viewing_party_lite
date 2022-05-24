@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    # binding.pry
-    @movie = Movie.all(params[:id])
+    binding.pry
+    @movie = MovieFacade.find(params[:id])
   end
 end
