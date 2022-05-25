@@ -16,6 +16,11 @@ class PeopleController < ApplicationController
     redirect_to person_path(person.id)
   end
 
+  def movies
+    @person = Person.find(params[:id])
+    @facade = MovieFacade.new.search(params[:query])
+  end
+
   private
 
   def person_params

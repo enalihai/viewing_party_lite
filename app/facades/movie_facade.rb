@@ -14,14 +14,14 @@ class MovieFacade
       Movie.new(movie_data)
     end.take(40)
   end
-  #
-  # def movie_show(movie_id)
-  #   production = MovieService.movie_details(movie_id)
-  #   cast = MovieService.cast(movie_id)
-  #   reviews = MovieService.reviews(movie_id)
-  #   pictures = MovieService.pictures(movie_id)
-  #   movie = MovieInfo.new(production, cast, reviews, picture)
-  # end
+
+  def self.movie_show(movie_id)
+    production = MovieService.movie_details(movie_id)
+    cast = MovieService.cast(movie_id)
+    reviews = MovieService.reviews(movie_id)
+    pictures = MovieService.pictures(movie_id)
+    MovieInfo.new(production, cast, reviews, picture)
+  end
   #
   # def movies_data(data)
   #   data[:results].map do |result|
