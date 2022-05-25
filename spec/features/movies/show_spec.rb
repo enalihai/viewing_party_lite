@@ -2,16 +2,17 @@ require "rails_helper"
 
 RSpec.describe "Movie Detail Page" do
   it "has a button to create a viewing party", :vcr do
+    person1 = Person.create!(name: "Phil Jackson", email: "philly@jackson.com", password: "asdf", password_confirmation: "asdf")
     movie1 = Movie.new(title: "Who Killed Mike Dao", vote_average: 10, id: 20)
 
     visit '/discover'
 
-    fill_in :query, with: "Who Killed Mike Dao"
+    fill_in :query, with: "Fight Club"
     click_button "Find Movies"
 
     expect(current_path).to eq("/discover/movies")
 
-    click_button "Create Viewing Party for #{movie1.title}"
+    click_button "Create Viewing Party for Fight Club"
 
     expect(current_path).to eq(new_person_party_path)
   end

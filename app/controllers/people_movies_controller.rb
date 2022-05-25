@@ -1,5 +1,7 @@
 class PeopleMoviesController < ApplicationController
   def show
-    @movie = MovieService.create_search_movies(params[:query])
+    # binding.pry
+    @person = Person.find(params[:person_id])
+    @movie = MovieService.movie_by_keyword(params[:query])
   end
 end

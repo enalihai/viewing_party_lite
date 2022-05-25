@@ -8,7 +8,7 @@
 <p>OR</p>
 
 <div class="center-field">
-  <%= form_with url: '/discover/movies?q=keyword', method: :get, local: true do |form| %>
+  <%= form_with url: "/person/#{@person.id}/movies?q=keyword", method: :get, local: true do |form| %>
     <%= form.text_field :query, placeholder: "Search by movie title" %>
     <%= form.submit "Find Movies" %>
   <% end %>
