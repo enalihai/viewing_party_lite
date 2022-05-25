@@ -8,10 +8,14 @@ class MoviesController < ApplicationController
   end
 
   def discover
+    # binding.pry
+    @person = Person.find(params[:id])
+    @movie = MovieService.create_search_movies(params[:query])
   end
 
   def show
-    binding.pry
-    @movie = MovieFacade.find(params[:id])
+    # binding.pry
+    @person = Person.find(params[:person_id])
+    @movie = MovieService.create_search_movies(params[:query])
   end
 end

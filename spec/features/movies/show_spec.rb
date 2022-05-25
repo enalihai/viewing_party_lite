@@ -1,12 +1,18 @@
 require "rails_helper"
 
 RSpec.describe "Movie Detail Page" do
-  it "has a button to create a viewing party" do
+  it "has a button to create a viewing party", :vcr do
+    person1 = Person.create!(name: "Phil Jackson", email: "philly@jackson.com", password: "asdf", password_confirmation: "asdf")
     movie1 = Movie.new(title: "Who Killed Mike Dao", vote_average: 10, id: 20)
 
-    visit movie_path(20)
+    visit '/discover'
 
-    click_button "Create Viewing Party for #{movie1.title}"
+    fill_in :query, with: "Fight Club"
+    click_button "Find Movies"
+
+    expect(current_path).to eq("/discover/movies")
+
+    click_button "Create Viewing Party for Fight Club"
 
     expect(current_path).to eq(new_person_party_path)
   end
@@ -14,7 +20,7 @@ RSpec.describe "Movie Detail Page" do
   it "has a button to return to Discover Page" do
     movie1 = Movie.new(title: "Who Killed Mike Dao", vote_average: 10, id: 20)
 
-    visit movie_path
+    visit '/discover'
 
     click_button "Discover Page"
 
@@ -24,7 +30,7 @@ RSpec.describe "Movie Detail Page" do
   it "displays movie information" do
     movie1 = Movie.new(title: "Who Killed Mike Dao", vote_average: 10, id: 20)
 
-    visit movie_path
+    visit '/discover'
 
     expect(page).to have_content(movie.title)
     expect(page).to have_content(movie.vote_average)

@@ -6,8 +6,11 @@ Rails.application.routes.draw do
     resources :party, only: [:new, :create]
   end
 
-  get "/discover", to: "movies#discover", as: "discover"
-  get "/register", to: "people#new", as: "register"
+  get "/discover", to: "movies#discover"
+  get "/person/:id/movies", to: 'people_movies#show', as: "movie_show"
+  get "/register", to: "people#new"
+  post '/register', to: "people#create"
+  get "/dashboard", to: "people#show"
 
   resources :movies, only: [:index, :show]
 end

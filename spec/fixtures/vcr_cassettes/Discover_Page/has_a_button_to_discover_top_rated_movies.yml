@@ -42,11 +42,11 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 f8df83e33edb75c89c800ed6ea90c362.cloudfront.net (CloudFront)
+      - 1.1 71ac84ce28b8e737049ed30fbe9a65dc.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DFW56-P5
       X-Amz-Cf-Id:
-      - BGYhF8Kz5pRCIaNM7UgzpMgA7DSEMZY8TAxT08yawU8mZ1yL1lDzcw==
+      - qL7qJ-dD0f4msqW_9TZNYGXWaP2qnbT_UnBf36TTJZUUychBwgUw9Q==
       Age:
       - '11439'
     body:
